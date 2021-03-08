@@ -26,8 +26,6 @@ def get_latest_info():
         
     #get latest daily update for vaccine information
     with open(filename, 'r') as fi:
-        #reader = csv.reader(fi, delimiter=',')
-        #rows = list(reader)
         rows = fi.readlines()
         return rows[0]
         
