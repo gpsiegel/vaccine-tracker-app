@@ -42,7 +42,7 @@ def lambda_handler(event, context):
     daily_update = str(get_latest_info())
     print(daily_update)
     
-    subject = str(yday) + 'Vaccine Updates'
+    subject = 'Vaccine Updates for: ' + str(yday)
     body = """
     <br>
     <h1>Hello There!</h1><br>
