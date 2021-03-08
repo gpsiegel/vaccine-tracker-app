@@ -26,8 +26,10 @@ def get_latest_info():
         
     #get latest daily update for vaccine information
     with open(filename, 'r') as fi:
-        rows = fi.readlines()
-        return rows[0]
+        reader = fi.readlines()
+        data = reader[0]    
+        return data
+
         
 def verify_email_identity():
     response = ses.verify_email_identity(
@@ -45,7 +47,7 @@ def lambda_handler(event, context):
     subject = 'Vaccine Updates for: ' + str(yday)
     body = """
     <br>
-    <h1>Hello There!</h1><br>
+    <h1>Vaccine Tracker - Current Status</h1><br>
     <h2>Here are the current updates as of {}:</h2><br><br>
     <b>{}</b>
     """.format(yday, daily_update)
