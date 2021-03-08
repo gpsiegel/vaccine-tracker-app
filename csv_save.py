@@ -18,11 +18,14 @@ def csv_sort():
 
     latest = rows[-1]
     
-    latest_trim = [latest[1], latest[2], latest[4], latest[5], latest[6]]
-    
+    trim = ['Vaccine Type: '+ latest[2], \
+        'Total Vaccinations: '+ latest[4], \
+        'People Vaccinated: '+ latest[5], \
+        'Total Vaccinated: '+ latest[6]]
+
     with open("us_vaxx.csv", "w") as fo:
-        writer = csv.writer(fo, delimiter=',')
-        writer.writerow(latest_trim)
+        writer = csv.writer(fo, delimiter=" ")
+        writer.writerow(trim)
 
 def main():
     csv_create()
