@@ -45,9 +45,9 @@ def lambda_handler(event, context):
     subject = str(yday) + 'Vaccine Updates'
     body = """
     <br>
-    Hello There!
-    Here are the current updates as of {}:<br>
-    {}
+    <h1>Hello There!</h1><br>
+    <h2>Here are the current updates as of {}:</h2><br><br>
+    <b>{}</b>
     """.format(yday, daily_update)
     
     message = {"Subject": {"Data": subject}, "Body": {"Html": {"Data": body}}}
@@ -59,4 +59,3 @@ def lambda_handler(event, context):
         "statusCode": 200,
         "body": daily_update
     }
-    
